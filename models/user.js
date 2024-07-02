@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     profilePic: String,
+    address: {
+        type: String,
+        required: true
+    },
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Cook' }],
 }, { timestamps: true });
 

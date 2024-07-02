@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const User=require("./user");
-
-const Cook=require("./cook");
 
 const bookingSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -15,6 +12,10 @@ const bookingSchema = new mongoose.Schema({
             type: Number,
             required: true
         }
+    },
+    address: {
+        type: String,
+        required: true
     },
     date: {
         type: Date,

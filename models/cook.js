@@ -16,6 +16,10 @@ const cookSchema = new mongoose.Schema({
     },
     profilePic: String,
     bio: String,
+    address: {
+        type: String,
+        required: true
+    },
     services: [{
         title: {
             type: String,
