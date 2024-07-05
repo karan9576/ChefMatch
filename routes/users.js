@@ -22,7 +22,7 @@ router.post("/signup",async function(req,res){//check later
             return res.status(400).json({ error: 'User with the same Aadhar Card Number already exists' });
         }
 
-        bcrypt.genSalt(saltRounds, function(err, salt) {
+        bcrypt.genSalt(10, function(err, salt) {
           bcrypt.hash(req.body.password, salt, function(err, hash) {
               // Store hash in your password DB.
               data.password = hash;
@@ -38,7 +38,7 @@ router.post("/signup",async function(req,res){//check later
         console.log('data saved');
 
 
-        res.redirect('/user/login');
+        // res.redirect('/user/login');
 
     }
     catch(err){
