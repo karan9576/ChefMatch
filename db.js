@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+
 
 // Define the MongoDB connection URL
 const mongoURL = `mongodb://127.0.0.1:27017/chefmatch` ;// Replace 'mydatabase' with your database name

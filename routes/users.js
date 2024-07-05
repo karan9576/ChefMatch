@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
+const User=require('../models/user');
 
 /* GET users listing. */
 router.get('/signup', function(req, res, next) {
