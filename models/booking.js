@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bookingSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     cook: { type: mongoose.Schema.Types.ObjectId, ref: 'Cook', required: true },
-    service: {
+
         title: {
             type: String,
             required: true
@@ -11,8 +11,8 @@ const bookingSchema = new mongoose.Schema({
         price: {
             type: Number,
             required: true
-        }
-    },
+        },
+  
     address: {
         type: String,
         required: true

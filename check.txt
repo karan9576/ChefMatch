@@ -1,1 +1,2 @@
-route->user->post(register)//check if it is working
+user->booking
+booking->:id

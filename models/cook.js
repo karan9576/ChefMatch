@@ -20,22 +20,14 @@ const cookSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    services: [{
         title: {
             type: String,
-            required: true
         },
-        description: String,
         price: {
             type: Number,
-            required: true
+        
         },
-        category: String
-    }],
-    availability: [{
-        date: Date,
-        timeSlots: [String]
-    }],
+    
     bookings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Booking' }]
 }, { timestamps: true });
 

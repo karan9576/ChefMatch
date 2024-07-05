@@ -6,10 +6,7 @@ const mongoURL = `mongodb://127.0.0.1:27017/chefmatch` ;// Replace 'mydatabase' 
 // const mongoURL = process.env.MONGODB_URL;
 
 // Set up MongoDB connection
-mongoose.connect(mongoURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(mongoURL)
 
 // Get the default connection
 // Mongoose maintains a default connection object representing the MongoDB connection.
