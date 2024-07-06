@@ -108,10 +108,10 @@ router.get('/cook',async function (req, res, next) {
 })
 
 router.get('/cook/:id',async function(req,res){
-  let id=req.params;
-  //const cook=await Cook.findById(id);
-  res.send(id);
- // res.render("show.ejs",{cook})
+  let id=req.params.id;
+  let cook=await Cook.findById(id);
+  
+  res.render("show.ejs",{cook})
 });
 
 
