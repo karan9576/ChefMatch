@@ -19,76 +19,21 @@
     </style>
 </head>
 <body>
-    <header class="bg-primary text-white text-center py-4">
-        <h1>Customer Profiles</h1>
-    </header>
-    
-    <div class="container my-5">
-        <div class="row profile-card">
-            <!-- Profile 1 -->
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="path_to_image1.jpg" class="card-img profile-img" alt="Customer Image">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body profile-info">
-                                <h5 class="card-title">John Doe</h5>
-                                <p class="card-text">A brief description of John Doe. He is a valued customer who enjoys our products.</p>
-                                <button class="btn btn-primary">Book Now</button>
+        
+        
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+                <% for(let cook of allCooks) { %>
+                    <a href="/users/cook/<%=cook._id%>" class="listing-link">
+                        <div class="card col listing-card">
+                        
+                                        <%= cook.name%><br>
+                      
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                  
+                 
+
+                    <%}%>
         </div>
-        <div class="row profile-card">
-            <!-- Profile 2 -->
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="path_to_image2.jpg" class="card-img profile-img" alt="Customer Image">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body profile-info">
-                                <h5 class="card-title">Jane Smith</h5>
-                                <p class="card-text">A brief description of Jane Smith. She is a loyal customer who has been with us for years.</p>
-                                <button class="btn btn-primary">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row profile-card">
-            <!-- Profile 3 -->
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="path_to_image3.jpg" class="card-img profile-img" alt="Customer Image">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body profile-info">
-                                <h5 class="card-title">Emily Johnson</h5>
-                                <p class="card-text">A brief description of Emily Johnson. She loves our services and recommends them to her friends.</p>
-                                <button class="btn btn-primary">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <footer class="bg-light text-center py-3">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
-    </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

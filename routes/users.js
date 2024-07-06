@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
 const User = require('../models/user');
+const Cook = require('../models/cook');
 var jwt = require('jsonwebtoken');
 /* GET users listing. */
 router.get('/signup', function (req, res, next) {
@@ -100,6 +101,18 @@ router.post('/login', async function (req, res, next) {
   }
 });
 
+
+router.get('/cook',async function (req, res, next) {
+  const allCooks=await Cook.find({});
+  res.render("book.ejs",{allCooks});
+})
+
+router.get('/cook/:id',async function(req,res){
+  let id=req.params;
+  //const cook=await Cook.findById(id);
+  res.send(id);
+ // res.render("show.ejs",{cook})
+});
 
 
 

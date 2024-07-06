@@ -86,10 +86,6 @@ router.post('/login', async function (req, res, next) {
         res.status(401).json({ error: 'Not authorized' });
       }
     })
-    
-
-
-
 
     // return token as response..
    
