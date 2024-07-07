@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt');
 const User = require('../models/user');
 const Cook = require('../models/cook');
 var jwt = require('jsonwebtoken');
+var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
 /* GET users listing. */
 router.get('/signup', function (req, res, next) {
   res.render("signup.ejs");
@@ -41,7 +42,7 @@ router.post("/signup", async function (req, res) {//check later
 
 
 
-    // res.redirect('/user/login');
+     res.redirect('/users/login');
 
   }
   catch (err) {
@@ -81,7 +82,7 @@ router.post('/login', async function (req, res, next) {
         }
         let token = jwt.sign({ email: user.email }, 'secretcode');
         res.cookie("token", token);
-        res.status(200).json({ message: "login success" });
+       res.redirect('/users/listings');
       }
       else {
         res.status(401).json({ error: 'Not authorized' });
@@ -102,16 +103,16 @@ router.post('/login', async function (req, res, next) {
 });
 
 
-router.get('/cook',async function (req, res, next) {
+router.get('/listings',jwtAuthMiddleware,async function (req, res, next) {
   const allCooks=await Cook.find({});
   res.render("book.ejs",{allCooks});
 })
 
-router.get('/cook/:id',async function(req,res){
+router.get('/listings/:id',jwtAuthMiddleware,async function(req,res){
   let id=req.params.id;
-  let cook=await Cook.findById(id);
+  let cooker=await Cook.findById(id);
   
-  res.render("show.ejs",{cook})
+  res.render("show.ejs",{cooker})
 });
 
 

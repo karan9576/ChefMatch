@@ -1,14 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Customer Profiles</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .profile-card {
+            margin: 20px 0;
+        }
+        .profile-img {
+            width: 100%;
+            height: auto;
+        }
+        .profile-info {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>heelo</h1>
-    <form action="/bookings" method="post">
-        <button>book</button>
-    </form>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Customer Profiles</h1>
+    </header>
+
+                    
+        </div>
+        <div class="container my-5">
+               
+            <div class="row profile-card">
+                <!-- Profile 1 -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <!-- <img src="path_to_image1.jpg" class="card-img profile-img" alt="Customer Image"> -->
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body profile-info">
+                                    <h5 class="card-title"><%= cooker.name%></h5>
+                                    <p class="card-text"><%= cooker.address%></p>
+                                    <p class="card-text"><%= cooker.price%></p>
+                                    <p class="card-text"><%= cooker.title%></p>
+                                    <form  method="post" action="/bookings/<%=cooker._id%>">
+                                        <button type="sub">book</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    
+        <footer class="bg-light text-center py-3">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </footer>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
+
+

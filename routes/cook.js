@@ -40,7 +40,7 @@ router.post("/signup", async function (req, res) {//check later
 
 
 
-    // res.redirect('/Cook/login');
+     res.redirect('/cook/login');
 
   }
   catch (err) {
