@@ -6,11 +6,10 @@ const bookingSchema = new mongoose.Schema({
 
         title: {
             type: String,
-            required: true
+           
         },
         price: {
             type: Number,
-            required: true
         },
   
     address: {
@@ -19,11 +18,9 @@ const bookingSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        required: true
     },
     timeSlot: {
         type: String,
-        required: true
     },
     status: {
         type: String,
