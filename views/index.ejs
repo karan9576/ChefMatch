@@ -1,10 +1,134 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <form action=""></form>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <script src="https://kit.fontawesome.com/847b0e3032.js" crossorigin="anonymous"></script>
+  <link  rel="icon" type="image/x-icon" href="https://github.com/karan9576/ChefMatch/blob/main/images/chef.png?raw=true">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <title>ChefMatch</title>
+</head>
+
+<body>
+  <header id="header">
+    <nav id="nav-bar"><a href="#home">
+        <img src="images/logo.png" id="header-img" /> <span class="logo-text">ChefMatch</span></a>
+      <div class="nav-links">
+        <a href="#how-it-works" class="nav-link">how it works</a>
+        <a href="#plans" class="nav-link">meal plans</a>
+        <a href="#about" class="nav-link">about us</a>
+        <a href="#sign-up" class="nav-link">sign up</a>
+      </div>
+    </nav>
+    <div>
+      <h1 class="hero-heading" id="home">healthy eating made easy</h1>
+      <h2 class="hero-subheading">
+        so you have more time for the good things
+      </h2>
+    </div>
+  </header>
+  <main>
+    <article class="how-it-works" id="how-it-works">
+      <h2 class="section-heading">how it works</h2>
+      <div class="how-cards">
+        <div class="how-card">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Choose your meal</h3>
+          <p>
+            Choose from one of our meal plans that best suites your needs.
+          </p>
+        </div>
+
+        <div class="how-card">
+          <i class="fa-solid fa-fire-burner"></i>
+          <h3>We cook it</h3>
+          <p>
+            Our chefs prepare all meals from scratch using the best locally
+            sourced ingredients.
+          </p>
+        </div>
+        <div class="how-card">
+          <i class="fa-solid fa-house" style="color: #c5d212;"></i>
+          <h3>At your Home</h3>
+          <p>Enjoy delicious food cooked by professionals at your home</p>
+        </div>
+        <div class="how-card">
+          <i class="fa-solid fa-bowl-food"></i>
+          <h3>Eat And Enjoy</h3>
+          <p>Enjoy your healthy meals.</p>
+        </div>
+      </div>
+    </article>
+    <article class="meal-plans" id="plans">
+      <h2 class="section-heading plans-h">meal plans</h2>
+      <div class="plans-cards">
+        <div class="meal-card">
+          <h3>Vegetarian plan</h3>
+          <p>
+            Vibrant and delicious vegetarian meals from mains to soups packed
+            with veggies.
+          </p>
+
+          <img
+            src="https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="stir fried noodles with veggies" width="300" class="sample-meal" />
+        </div>
+        <div class="meal-card">
+          <h3>Balanced diet plan</h3>
+          <p>
+            Delicious, healthy and satisfying low cal meals with colorful
+            smoothies and healthy snacks.
+          </p>
+          <img src="https://images.pexels.com/photos/5639482/pexels-photo-5639482.jpeg"
+            alt="fish with vegetables on a plate" width="300" class="sample-meal" />
+        </div>
+        <div class="meal-card">
+          <h3>Muscle gain plan</h3>
+          <p>
+            Protein packed meals and snacks that will help you build and
+            maintain lean muscle.
+          </p>
+          <img
+            src="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="steak with veggies and mash" width="300" class="sample-meal" />
+        </div>
+      </div>
+    </article>
+    <div class="wrapper background1"></div>
+    <article class="about">
+      <h2 class="section-heading" id="about">about us</h2>
+      <h3>We prepare and deliver healthy and delicious meals</h3>
+      <p>
+        Here at <span class="bold">Chef In A Box</span>, we share a passion
+        for tasty and healthy food. Our mission is to make healthy eating more
+        exciting, convenient and affordable. We love supporting our local
+        farmers and we work with the best suppliers to bring you nutritious
+        and wholesome meals. Each meal is made from scratch using fresh,
+        delicious ingredients sourced locally wherever possible.
+      </p>
+      <section class="video">
+        <iframe src="https://www.youtube.com/embed/evpCjQhgQgo"
+          title="Meal Delivery Services 🍛 Top 10 Meal Kit Picks | 2024 Review" id="video"></iframe>
+      </section>
+    </article>
+    <section class="sign-up" id="sign-up">
+      <h2>get started today</h2>
+      <h3>Sign up and get 10% off your first order!</h3>
+      <form id="form" action="/users/signup" method="get">
+       
+        <input type="submit" id="submit" value="SIGN UP" class="bttn" />
+      </form>
+    </section>
+  </main>
+  <footer>
+    <h4>&copy; ChefMatch 2024</h4>
+  </footer>
+
+</body>
+
 </html>

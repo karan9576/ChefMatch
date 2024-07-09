@@ -1,8 +1,311 @@
+:root {
+  --green: #c5d212;
+  --white: #fff;
+  --grey: #474747;
+  --background: #bebebe;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
+#header {
+  background-image: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#header-img {
+  width: 95px;
+  padding: 5px;
+  filter: brightness(0) invert(1);
+}
+
+#nav-bar {
+  background: #111010e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  font-weight: 600;
+}
+a:link {
+  color: #000;
+}
+a:visited {
+  color: #fdfcfc;
+}
+a:hover {
+  color: var(--green);
+}
+.nav-links {
+  display: flex;
+}
+.nav-link {
+  padding-right: 15px;
+}
+.nav-link:first-of-type {
+  padding-left: 10px;
+}
+
+/*Main*/
+.hero-heading,
+.hero-subheading,
+h2 {
+  text-transform: uppercase;
+  font-family: "Concert One", sans-serif;
+}
+.hero-heading,
+h2,
+footer,
+.how-card,
+.about,
+.sign-up {
+  text-align: center;
+}
+h3 {
+  font-weight: 600;
+}
+.hero-heading,
+.hero-subheading {
+  font-family: "Concert One", sans-serif;
+}
+.hero-heading {
+  font-size: 4em;
+  color: var(--white);
+  text-shadow: 1px 1px 5px #000;
+  padding-bottom: 0.5em;
+}
+.section-heading {
+  padding: 1em 0 1em;
+  font-size: 2em;
+}
+p,
+h3:not(section h3) {
+  color: var(--grey);
+}
+
+.how-it-works,
+.meal-plans,
+.about,
+.sign-up {
+  padding-bottom: 2em;
+}
+/*How It Works*/
+.how-it-works {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.meal-card,
+.about,
+.about p,
+.video {
+  margin: auto;
+}
+.how-cards {
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+  color: var(--grey);
+}
+.how-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  gap: 10px;
+}
+i {
+  color: var(--green);
+  font-size: 2.5em;
+  padding-bottom: 5px;
+}
+/*Meal Plans*/
+.meal-plans {
+  background-color: var(--green);
+}
+.plans-cards {
+  display: flex;
+  gap: 1em;
+  color: var(--grey);
+}
+.meal-card {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  gap: 10px;
+  align-items: center;
+  text-align: justify;
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: 1px 5px 10px var(--grey);
+}
+.sample-meal {
+  border-radius: 0 0 15px 15px;
+  width: 20em;
+}
+.meal-card p,
+.meal-card h3 {
+  padding: 10px;
+}
+.plans-h {
+  color: var(--white);
+  text-shadow: 1px 1px 3px var(--grey);
+}
+/*About Us */
+.about h3 {
+  padding-bottom: 1em;
+}
+.about p {
+  width: 40%;
+  line-height: 1.5em;
+  text-align: justify;
+}
+.bold {
+  font-weight: 800;
+}
+.video {
+  padding-top: 1.5em;
+}
+iframe {
+  border-radius: 15px;
+  border: none;
+  height: 300px;
+  width: 500px;
+}
+.wrapper {
+  background-size: cover;
+  background-attachment: fixed;
+  height: 45vh;
+}
+.background1 {
+  background-image: url("https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+}
+.sign-up {
+  background: var(--background);
+}
+.sign-up h2 {
+  font-size: 2em;
+  padding-top: 1em;
+}
+.sign-up h3,
+form {
+  padding-top: 1.5em;
+}
+input:not(.bttn) {
+  font-size: 1.3em;
+  border: none;
+  border-radius: 5px;
+}
+.bttn {
+  color: var(--white);
+  background-color: var(--green);
+  border: 2px solid var(--white);
+  padding: 5px 20px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 3px var(--grey);
+  font-weight: 800;
+}
+.bttn:hover {
+  cursor: pointer;
+  color: var(--green);
+  background: var(--white);
+  border: 2px solid var(--green);
+}
+footer {
+  background-color: var(--green);
+  padding: 10px;
+}
+
+@media (max-width: 1010px) {
+  .plans-cards {
+    flex-direction: column;
+  }
+}
+@media (max-width: 830px) {
+  .how-cards {
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+  }
+  #header {
+    background-position: 10%;
+  }
+  .background1 {
+    background-position: 50%;
+  }
+  .about p,
+  .about h3 {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 700px) {
+  #nav-bar {
+    flex-direction: column;
+  }
+  #header-img {
+    width: 75px;
+  }
+  .hero-subheading {
+    background-color: #ffffff9d;
+  }
+}
+@media (max-width: 500px) {
+  .video {
+    display: none;
+  }
+
+  .bttn {
+    margin-top: 1em;
+  }
+  .sample-meal {
+    width: 10em;
+  }
+  .meal-card {
+    text-align: center;
+    gap: 0;
+  }
+  .meal-card h3 {
+    font-size: 1em;
+    padding-bottom: 0;
+  }
+  .nav-link {
+    font-size: 0.75em;
+  }
+  .background1 {
+    background-position: 75%;
+  }
+}
+@media (max-width: 290px) {
+  input[type="email"] {
+    font-size: 1em;
+  }
+}
+@media (max-width: 250px) {
+  input[type="email"] {
+    font-size: 0.75em;
+  }
+}
+.logo-text{
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translate(-50%, -50%);
 }
