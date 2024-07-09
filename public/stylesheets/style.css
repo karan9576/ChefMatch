@@ -40,13 +40,14 @@ body {
   top: 0;
   width: 100%;
   flex-wrap: wrap;
+  
 }
 a {
   text-decoration: none;
   font-weight: 600;
 }
 a:link {
-  color: #000;
+  color: #ffff;
 }
 a:visited {
   color: #fdfcfc;
@@ -306,6 +307,6 @@ footer {
 .logo-text{
   position: absolute;
   top: 50%;
-  left: 8%;
+  left: 9%;
   transform: translate(-50%, -50%);
 }
