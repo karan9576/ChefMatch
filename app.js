@@ -10,12 +10,15 @@ var usersRouter = require('./routes/users');
 var cookRouter =require('./routes/cook');
 var bookingRouter =require('./routes/booking');
 
-
 var app = express();
 //hello
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+const ejsMate=require("ejs-mate");
+app.engine("ejs",ejsMate);
+
 
 app.use(logger('dev'));
 app.use(express.json());
