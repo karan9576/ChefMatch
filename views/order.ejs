@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Data</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Booking Data</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Cook</th>
+                                <th>Title</th>
+                                <th>Address</th>
+                                <th>Date</th>
+                                <th>Time Slot</th>
+                                <th>Status</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% bookings.forEach(booking => { %>
+                            <tr>
+                                <td><%= booking.cook.name %></td>
+                                <td><%= booking.title %></td>
+                                <td><%= booking.address %></td>
+                                <td><%= new Date(booking.date).toLocaleDateString() %></td>
+                                <td><%= booking.timeSlot %></td>
+                                <td>
+                                    <% if (booking.status === 'pending') { %>
+                                        <span class="badge badge-warning"><%= booking.status %></span>
+                                    <% } else if (booking.status === 'confirmed') { %>
+                                        <span class="badge badge-success"><%= booking.status %></span>
+                                    <% } else if (booking.status === 'completed') { %>
+                                        <span class="badge badge-primary"><%= booking.status %></span>
+                                    <% } else { %>
+                                        <span class="badge badge-danger"><%= booking.status %></span>
+                                    <% } %>
+                                </td>
+                                <td><%= new Date(booking.createdAt).toLocaleString() %></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

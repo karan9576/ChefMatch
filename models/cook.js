@@ -20,7 +20,7 @@ const cookSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-        title: {
+        foodTitle: {
             type: String,
         },
         price: {

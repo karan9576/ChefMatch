@@ -3,6 +3,8 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 const Cook = require('../models/cook');
 var jwt = require('jsonwebtoken');
+const Booking = require('../models/booking');
+var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
 /* GET cook listing. */
 router.get('/signup', function (req, res, next) {
   res.render("cooksignup.ejs");
@@ -80,7 +82,7 @@ router.post('/login', async function (req, res, next) {
         }
         let token = jwt.sign({ email: cook.email }, 'secretcode');
         res.cookie("token", token);
-        res.status(200).json({ message: "login success" });
+        res.redirect('/cook/bookings')
       }
       else {
         res.status(401).json({ error: 'Not authorized' });
@@ -96,6 +98,20 @@ router.post('/login', async function (req, res, next) {
   }
 });
 
+router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
+  let token=req.cookies.token;
+  const decoded = jwt.verify(token, 'secretcode' );
+  const cookEmail=decoded.email;
+  const cook=await Cook.findOne({email:cookEmail});
+  console.log(cook)
+  const bookings=await Booking.find({cook:cook._id}).populate('user');;
+  res.render("cookorder.ejs",{bookings});
+});
+router.put("/bookings/:id",jwtAuthMiddleware,async (req,res)=>{
+
+  const bookings=await Booking.findByIdAndUpdate(req.params.id,req.body);
+  res.redirect('/cook/bookings');
+});
 
 
 

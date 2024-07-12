@@ -3,8 +3,16 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 const User = require('../models/user');
 const Cook = require('../models/cook');
+const Booking = require('../models/booking');
 var jwt = require('jsonwebtoken');
 var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
+
+router.get("/order",(req,res)=>{
+  res.render("order.ejs");
+})
+
+
+
 /* GET users listing. */
 router.get('/signup', function (req, res, next) {
   res.render("signup.ejs");
@@ -113,6 +121,40 @@ router.get('/listings/:id',jwtAuthMiddleware,async function(req,res){
   let cooker=await Cook.findById(id);
   
   res.render("show.ejs",{cooker})
+});
+
+router.post("/bookings/:id",jwtAuthMiddleware,async (req,res)=>{
+  const cookId=req.params.id;
+  const token = req.cookies.token;
+
+  const decoded = jwt.verify(token, 'secretcode' );
+  const userEmail=decoded.email;
+  
+  console.log(cookId)
+  console.log(userEmail);
+  let newBooking = {}; // Assuming newBooking is an empty object or already defined;
+  newBooking=req.body;
+  let cook =await Cook.findById(cookId);
+  let user=await User.find({email:userEmail});
+  console.log(user[0]._id);
+  newBooking.price=cook.price;
+  newBooking.user=user[0]._id
+  console.log(cook._id);
+  newBooking.cook=cook._id
+  let booking1 =new Booking(newBooking);
+  booking1.save();
+  res.redirect('/users/listings');
+});
+
+router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
+  let token=req.cookies.token;
+  const decoded = jwt.verify(token, 'secretcode' );
+  const userEmail = decoded.email;
+  console.log(userEmail)
+  const user = await User.findOne({email:userEmail});
+  console.log(user)
+  const bookings=await Booking.find({user:user._id}).populate('cook');;
+  res.render("order.ejs",{bookings});
 });
 
 

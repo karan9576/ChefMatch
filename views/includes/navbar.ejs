@@ -1,20 +1,35 @@
 <nav class="navbar bg-secondary navbar-expand-md bg-body-light border-bottom sticky-top mb-3">
-    <div class="container-fluid bg-secondary navbar-expand-lg bg-body-tertiary">
-      <a class="navbar-brand" href=""><img style="height: 38px;;" src="https://github.com/karan9576/ChefMatch/blob/main/public/images/logo.png?raw=true" alt="nothing to show">&nbsp;&nbsp;ChefMatch</a>
+  <div class="container-fluid bg-secondary navbar-expand-lg bg-body-tertiary">
+      <a class="navbar-brand d-flex align-items-center" href="">
+          <img style="height: 38px;" src="https://github.com/karan9576/ChefMatch/blob/main/public/images/logo.png?raw=true" alt="nothing to show">
+          <span class="ms-2">ChefMatch</span>
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link " href="" >Something</a>
-          <a class="nav-link" href="">Something</a>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link " href=""><b>Signup</b></a>
-          <a class="nav-link" href=""><b>Login</b></a>
-
-        </div>
+          <div class="navbar-nav">
+              <a class="nav-link" href="">Something</a>
+              <a class="nav-link" href="">Something</a>
+          </div>
+          <div class="navbar-nav ms-auto">
+              <select name="login" id="login" class="form-select" onchange="navigateToLogin(this)">
+                  <option value="#">Login</option>
+                  <option value="/users/login">Login as user</option>
+                  <option value="/cook/login">Login as cook</option>
+              </select>
+          </div>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>
+
+<script>
+  function navigateToLogin(select) {
+      const url = select.value;
+      if (url) {
+          window.location.href = url;
+      }
+  }
+</script>
+
