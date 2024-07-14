@@ -6,7 +6,8 @@ const Cook = require('../models/cook');
 const Booking = require('../models/booking');
 var jwt = require('jsonwebtoken');
 var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
-
+const nodeMailer = require('nodemailer');
+const mail=require("../Nodemailer.js")
 router.get("/order",(req,res)=>{
   res.render("order.ejs");
 })
@@ -143,6 +144,30 @@ router.post("/bookings/:id",jwtAuthMiddleware,async (req,res)=>{
   newBooking.cook=cook._id
   let booking1 =new Booking(newBooking);
   booking1.save();
+  console.log(userEmail);
+  console.log(cook.email);
+  
+  mail(userEmail, 
+    `Dear ${user[0].name},
+    
+    Congratulations on booking your order with ChefMatch! We're thrilled to have you on board. Your chosen cook will be in touch with you shortly to confirm the details.
+    
+    Thank you for choosing ChefMatch, and we hope you have a delightful culinary experience!
+    
+    Best regards,
+    The ChefMatch Team`);
+    
+    mail(cook.email, 
+      `Dear ${cook.name},
+      
+      You have a new order from ${user[0].name}! Please check your dashboard for the details and reach out to the user to confirm the booking.
+      
+      Thank you for being a part of ChefMatch, and we look forward to your excellent service.
+      
+      Best regards,
+      The ChefMatch Team`);
+
+
   res.redirect('/users/listings');
 });
 
@@ -154,6 +179,9 @@ router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
   const user = await User.findOne({email:userEmail});
   console.log(user)
   const bookings=await Booking.find({user:user._id}).populate('cook');;
+
+
+
   res.render("order.ejs",{bookings});
 });
 
