@@ -1,33 +1,38 @@
 <% layout("/layouts/biolerplate") %>
-<body>
-  <div class="card col-6 offset-3 my-3 ">
-    <div class="card-body">
-      <form action="/users/signup" method="post">
-        <div>
-          <label for="exampleInputEmail1" class="form-label">Name</label>
-          <input type="Text" class="form-control" id="Name" aria-describedby="emailHelp" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email" required>
-        </div>
 
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Address</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" name="address" required>
-        </div>
-
-        <button type="submit" class="btn offset-5 btn-primary">Submit</button>
-
-      </form>
-    </div>
-  </div>
+<link rel="stylesheet" href="/stylesheets/p1.css">
+<div class="wrapper">
   
+  <form class="form__contact" action="/users/signup" method="post">
+    <fieldset>
+      <p>Signup Form</p>
+      <p>My name is <input type="text" class="form__field field--name" name="name" placeholder="your name" required tabindex="1" style="border: none;"></p>
+      <p>This is my email address: <input type="email" style="border: none;" class="form__field field--email" name="email" placeholder="email address" required tabindex="2"></p>
+      <p>My password: <input type="password" class="form__field field--password" name="password" placeholder="password" required tabindex="3" style="border: none;"></p>
+      <p>My address: <input type="text" class="form__field field--address" name="address" placeholder="address" required tabindex="4" style="border: none;"></p>
+      <p>Link to my image: <input type="url" class="form__field field--image" name="profilePic" placeholder="image link" required tabindex="5" style="border: none;"></p>
+      <button type="submit" class="button button--xlarge" tabindex="6">Signup &#187;</button>
+  </fieldset>
+  </form>
+</div>
 
-</body>
-
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+  <defs>
+    <filter id="blur0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0 0" />
+    </filter>
+    <filter id="blur1">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0 5" />
+    </filter>
+    <filter id="blur2">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0 10" />
+    </filter>
+    <filter id="blur3">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0 15" />
+    </filter>
+    <filter id="blur4">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0 20" />
+    </filter>
+  </defs>
+</svg>
+</div>
