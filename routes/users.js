@@ -26,7 +26,6 @@ router.post("/signup", async function (req, res) {//check later
   try {
     const data = req.body
 
-
     // Check if a user with the same email id already exists
     const existingUser = await User.findOne({ email: data.email });
     if (existingUser) {
@@ -44,12 +43,6 @@ router.post("/signup", async function (req, res) {//check later
       });
     });
     console.log(data.password)
-    // Create a new User document using the Mongoose model
-
-
-    // Save the new user to the database
-
-
 
      res.redirect('/users/login');
 
@@ -68,15 +61,15 @@ router.get('/login', function (req, res, next) {
 
 router.post('/login', async function (req, res, next) {
   try {
-    // Extract aadharCardNumber and password from request body
+    // Extract email and password from request body
     const { email, password } = req.body;
 
-    // Check if aadharCardNumber or password is missing
+    // Check if email or password is missing
     if (!email || !password) {
       return res.status(400).json({ error: 'email and password are required' });
     }
 
-    // Find the user by aadharCardNumber
+    // Find the user by email
     const user = await User.findOne({ email: email });
     console.log(user);
     // If user does not exist or password does not match, return error
@@ -114,14 +107,14 @@ router.post('/login', async function (req, res, next) {
 
 router.get('/listings',jwtAuthMiddleware,async function (req, res, next) {
   const allCooks=await Cook.find({});
-  res.render("book.ejs",{allCooks});
+  res.render("cookList.ejs",{allCooks});
 })
 
 router.get('/listings/:id',jwtAuthMiddleware,async function(req,res){
   let id=req.params.id;
   let cooker=await Cook.findById(id);
   
-  res.render("show.ejs",{cooker})
+  res.render("book.ejs",{cooker})
 });
 
 router.post("/bookings/:id",jwtAuthMiddleware,async (req,res)=>{
@@ -152,27 +145,24 @@ router.post("/bookings/:id",jwtAuthMiddleware,async (req,res)=>{
     
     Congratulations on booking your order with ChefMatch! We're thrilled to have you on board. Your chosen cook will be in touch with you shortly to confirm the details.
     
-    Thank you for choosing ChefMatch, and we hope you have a delightful culinary experience!
-    
-    Best regards,
-    The ChefMatch Team`);
+    Thank you for choosing ChefMatch, and we hope you have a delightful culinary experience!`);
     
     mail(cook.email, 
       `Dear ${cook.name},
       
       You have a new order from ${user[0].name}! Please check your dashboard for the details and reach out to the user to confirm the booking.
       
-      Thank you for being a part of ChefMatch, and we look forward to your excellent service.
-      
-      Best regards,
-      The ChefMatch Team`);
+      Thank you for being a part of ChefMatch, and we look forward to your excellent service.`);
 
 
   res.redirect('/users/listings');
 });
 
+
+//to show the booked cooks of the particular user
 router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
-  let token=req.cookies.token;
+  //we require the email of the user to find user and his id
+  let token = req.cookies.token;
   const decoded = jwt.verify(token, 'secretcode' );
   const userEmail = decoded.email;
   console.log(userEmail)

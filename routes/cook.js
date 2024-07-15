@@ -5,6 +5,8 @@ const Cook = require('../models/cook');
 var jwt = require('jsonwebtoken');
 const Booking = require('../models/booking');
 var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
+
+
 /* GET cook listing. */
 router.get('/signup', function (req, res, next) {
   res.render("cooksignup.ejs");
