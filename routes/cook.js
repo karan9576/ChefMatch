@@ -114,6 +114,10 @@ router.put("/bookings/:id",jwtAuthMiddleware,async (req,res)=>{
   const bookings=await Booking.findByIdAndUpdate(req.params.id,req.body);
   res.redirect('/cook/bookings');
 });
+router.get("/logout",jwtAuthMiddleware,async(req,res)=>{
+    res.clearCookie("token");
+    res.redirect("/")  ;
+  })
 
 
 

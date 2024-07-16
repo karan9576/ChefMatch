@@ -173,7 +173,13 @@ router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
 
 
   res.render("order.ejs",{bookings});
+
 });
+  router.get("/logout",jwtAuthMiddleware,async(req,res)=>{
+    res.clearCookie("token");
+    res.redirect("/")  
+  })
+
 
 
 

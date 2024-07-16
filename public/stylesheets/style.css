@@ -25,7 +25,7 @@ body {
   justify-content: center;
 }
 #header-img {
-  width: 95px;
+  width: 65px;
   padding: 5px;
   filter: brightness(0) invert(1);
 }
@@ -307,6 +307,6 @@ footer {
 .logo-text{
   position: absolute;
   top: 50%;
-  left: 9%;
+  left: 7.5%;
   transform: translate(-50%, -50%);
 }

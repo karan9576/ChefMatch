@@ -13,8 +13,8 @@
   <title>ChefMatch</title>
 </head>
 <body>
-  <header id="header">
-    <nav id="nav-bar"><a href="#home">
+  <header id="header" >
+    <nav id="nav-bar"><a href="#home" style="height: 70px;">
         <img src="images/logo.png" id="header-img" /> <span class="logo-text">ChefMatch</span></a>
       <div class="nav-links">
         <a href="#how-it-works" class="nav-link">how it works</a>
@@ -117,11 +117,21 @@
     <section class="sign-up" id="sign-up">
       <h2>get started today</h2>
       <h3>Sign up and get 10% off your first order!</h3>
-      <form id="form" action="/users/signup" method="get">
+      <div >
+      <form id="form" action="/users/login" method="get" style="display: inline-block;">
+       
+        <input type="submit" id="submit" value="LOGIN AS USER" class="bttn" />
+      </form>
+      <form id="form" action="/users/signup" method="get" style="display: inline-block;">
        
         <input type="submit" id="submit" value="SIGN UP AS USER" class="bttn" />
       </form>
-      <form id="form" action="/cook/signup" method="get">
+    </div>
+      <form id="form" action="/cook/login" method="get" style="display: inline-block;">
+       
+        <input type="submit" id="submit" value="LOGIN AS COOK" class="bttn" />
+      </form>
+      <form id="form" action="/cook/signup" method="get" style="display: inline-block;">
        
         <input type="submit" id="submit" value="SIGN UP AS COOK" class="bttn" />
       </form>
