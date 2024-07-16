@@ -26,7 +26,7 @@ h1 {
 }
 
 .form__contact {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   border-left: 30px solid white; 
   border-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI0MS44NnB4IiBoZWlnaHQ9IjUyLjMyNnB4IHZpZXdCb3g9IjAgMCA0MS44NiA1Mi4zMjYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQxLjg2IDUyLjMyNiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTAsMHYyNS4xNjNoNy4wOTdjMC41MDEtNC45ODksNC43MTItOC44ODQsOS44ODMtOC44ODRjNS40NTgsMCw5Ljg4NCw0LjQyNSw5Ljg4NCw5Ljg4NHMtNC40MjUsOS44ODQtOS44ODQsOS44ODRjLTUuMTIxLDAtOS4zMzItMy44OTUtOS44MzMtOC44ODRIMHYyNS4xNjNoNDEuODZWMFYweiIvPjwvc3ZnPg==) 5% 100% repeat;
@@ -40,7 +40,7 @@ h1 {
   margin: 0;
   padding: 30px 30px 40px 80px;
   border: none;
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px 20px 20px 20px;
   font: 24px 'Shadows Into Light', cursive;
   background: #fff linear-gradient(rgba(0,0,0,.1) 1px, transparent 0) 0 20px / 100% 40px;
 }
