@@ -7,6 +7,30 @@ const Booking = require('../models/booking');
 var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
 
 
+router.use(async(req,res,next)=>{
+
+  if(req.cookies.token){
+  let token1 = req.cookies.token;
+  console.log(token1);
+  const decoded1 = jwt.verify(token1, 'secretcode' );
+
+  const cookEmail1 = decoded1.email;
+
+  const cook1 = await Cook.findOne({email:cookEmail1});
+  
+  res.locals.currCook=cook1;
+  console.log(res.locals);
+  console.log("hi");
+  }
+  else{
+    res.locals.currCook=null;
+    console.log(res.locals.currCook);
+  }
+  next();
+})
+
+
+
 /* GET cook listing. */
 router.get('/signup', function (req, res, next) {
   res.render("cooksignup.ejs");
@@ -105,7 +129,6 @@ router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
   const decoded = jwt.verify(token, 'secretcode' );
   const cookEmail=decoded.email;
   const cook=await Cook.findOne({email:cookEmail});
-  console.log(cook)
   const bookings=await Booking.find({cook:cook._id}).populate('user');;
   res.render("cookorder.ejs",{bookings});
 });

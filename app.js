@@ -7,6 +7,8 @@ var db=require('./db')
 var methodOverride = require('method-override')
 
 
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var cookRouter =require('./routes/cook');
@@ -22,12 +24,15 @@ const ejsMate=require("ejs-mate");
 app.engine("ejs",ejsMate);
 
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -48,6 +53,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
+app.listen(4000, () => {
+  console.log("listening on port 3000");
+});
 
 module.exports = app;

@@ -14,10 +14,14 @@
             
                 
               <div class="navbar-nav ms-auto">
-                <a class="nav-link text-white mr-3" href="/cook/bookings"  >Bookings</a>
+                <%if(!currCook){%>
                 <a class="nav-link text-white mr-3" href="/cook/login"  >Login</a>  
                 <a class="nav-link text-white mr-3" href="/users/signup"  >Signup</a>  
-                <a class="nav-link text-white mr-3" href="/cook/logout"  >Logout</a>
+                <% }else{%>
+                <a class="nav-link text-white mr-3" href="/cook/bookings"  >Bookings</a>
+                <a class="nav-link text-white mr-3" href=""  >Hi cook , <%=currCook.name%></a>
+                <a class="nav-link text-white mr-3" href="/cook/logout"  >Logout</a>\
+                <%}%>
               </div>
             </div>
         </div>

@@ -12,6 +12,24 @@ router.get("/order",(req,res)=>{
   res.render("order.ejs");
 })
 
+router.use(async(req,res,next)=>{
+  if(res.cookie.token){
+  let token1 = req.cookies.token;
+  const decoded1 = jwt.verify(token1, 'secretcode' );
+
+  const userEmail1 = decoded1.email;
+
+  const user1 = await User.findOne({email:userEmail1});
+  
+  res.locals.currUser=user1;
+  console.log(res.locals.currUser);
+  }
+  else{
+    res.locals.currUser=null;
+  }
+  next();
+})
+
 
 
 /* GET users listing. */
@@ -164,6 +182,7 @@ router.get("/bookings",jwtAuthMiddleware,async (req,res)=>{
   //we require the email of the user to find user and his id
   let token = req.cookies.token;
   const decoded = jwt.verify(token, 'secretcode' );
+  console.log(decoded)
   const userEmail = decoded.email;
   console.log(userEmail)
   const user = await User.findOne({email:userEmail});

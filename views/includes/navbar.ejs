@@ -12,10 +12,18 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
           
           <div class="navbar-nav ms-auto">
-            <a class="nav-link text-white mr-3" href="/users/bookings"  >Bookings</a>
+            
+            
+            <%if(!currUser){%>
             <a class="nav-link text-white mr-3" href="/users/login"  >Login</a>  
+            
             <a class="nav-link text-white mr-3" href="/users/signup"  >Signup</a>  
+            <% }else{%>
+            <a class="nav-link text-white mr-3" href="/users/bookings"  >Bookings</a>
+            <a class="nav-link text-white mr-3" href=""  >Hi , <%=currUser.name%></a>
             <a class="nav-link text-white mr-3" href="/users/logout"  >Logout</a>
+            <%}%>
+           
           </div>
       </div>
   </div>
