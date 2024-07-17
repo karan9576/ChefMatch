@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 
 
+console.log(process.env.ATLASDB_URL)
 // Define the MongoDB connection URL
-const mongoURL = `mongodb://127.0.0.1:27017/chefmatch` ;// Replace 'mydatabase' with your database name
+const mongoURL = process.env.ATLASDB_URL;// Replace 'mydatabase' with your database name
 // const mongoURL = process.env.MONGODB_URL;
+
 
 // Set up MongoDB connection
 mongoose.connect(mongoURL)

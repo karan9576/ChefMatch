@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var db=require('./db')
 var methodOverride = require('method-override')
-
+require("dotenv").config();
 
 
 
