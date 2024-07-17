@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 require("dotenv").config();
 
-
-console.log(process.env.ATLASDB_URL)
 // Define the MongoDB connection URL
 const mongoURL = process.env.ATLASDB_URL;// Replace 'mydatabase' with your database name
 // const mongoURL = process.env.MONGODB_URL;

@@ -8,7 +8,7 @@ var {jwtAuthMiddleware,generateToken}=require('../jwt.js');
 
 
 router.use(async(req,res,next)=>{
-
+console.log(req)
   if(req.cookies.token){
   let token1 = req.cookies.token;
   console.log(token1);

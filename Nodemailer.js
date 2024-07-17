@@ -1,13 +1,16 @@
 const nodeMailer = require('nodemailer');
 
+require("dotenv").config();
+
+
 //sending mail using nodemailer
 
 function mail(mail , content){
 let transportmail = nodeMailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'chefmatchofficial@gmail.com',
-        pass: 'gpjinhyjrkaygljo'
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS
     }
   });
   

@@ -13,7 +13,8 @@ router.get("/order",(req,res)=>{
 })
 
 router.use(async(req,res,next)=>{
-  if(res.cookie.token){
+  console.log(req)
+  if(req.cookies.token){
   let token1 = req.cookies.token;
   const decoded1 = jwt.verify(token1, 'secretcode' );
 
